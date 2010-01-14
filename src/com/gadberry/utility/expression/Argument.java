@@ -156,8 +156,8 @@ public class Argument {
 				return false;
 			}
 		}
-		throw new ArgumentCastException("Argument can not be interpreted as an boolean.  Arg: "
-				+ arg.getClass().toString() + arg.toString());
+		throw new ArgumentCastException("Argument can not be interpreted as a boolean.  Arg Class:"
+				+ arg.getClass().toString() + " Value:" + arg.toString());
 	}
 
 	/**
@@ -176,7 +176,8 @@ public class Argument {
 		} else if (arg instanceof Calendar) {
 			return ((Calendar) arg).getTime();
 		}
-		throw new ArgumentCastException("Argument can not be interpreted as a date.  Arg: " + arg.toString());
+		throw new ArgumentCastException("Argument can not be interpreted as a date.  Arg Class:"
+				+ arg.getClass().toString() + " Value:" + arg.toString());
 	}
 
 	/**
@@ -206,7 +207,8 @@ public class Argument {
 				// Allow to pass through to ArgumentCastException
 			}
 		}
-		throw new ArgumentCastException("Argument can not be interpreted as an double.  Arg: " + arg.toString());
+		throw new ArgumentCastException("Argument can not be interpreted as a double.  Arg Class:"
+				+ arg.getClass().toString() + " Value:" + arg.toString());
 	}
 
 	/**
@@ -237,7 +239,8 @@ public class Argument {
 				// Allow to pass through to ArgumentCastException
 			}
 		}
-		throw new ArgumentCastException("Argument can not be interpreted as an integer.  Arg: " + arg.toString());
+		throw new ArgumentCastException("Argument can not be interpreted as an integer.  Arg Class:"
+				+ arg.getClass().toString() + " Value:" + arg.toString());
 	}
 
 	@Override
