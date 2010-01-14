@@ -13,6 +13,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.gadberry.utility.CalendarUtils;
+import com.gadberry.utility.FuzzyEquals;
 import com.gadberry.utility.CalendarUtils.Unit;
 import com.gadberry.utility.expression.Argument;
 import com.gadberry.utility.expression.ArgumentCastException;
@@ -205,7 +206,7 @@ public class DateDifferenceFunctionTests {
 		args.add(new Argument(Unit.MONTH, null));
 		try {
 			op.setArguments(args);
-			assertEquals(op.resolve().toDouble(), (double) CalendarUtils.difference(c1, c2, Unit.MONTH));
+			assertEquals(op.resolve().toDouble(), (double) CalendarUtils.difference(c1, c2, Unit.MONTH), FuzzyEquals.TOLERANCE);
 		} catch (InvalidArgumentsException e) {
 			e.printStackTrace();
 			fail();
@@ -246,7 +247,7 @@ public class DateDifferenceFunctionTests {
 		args.add(new Argument(Unit.MILLISECOND, null));
 		try {
 			op.setArguments(args);
-			assertEquals(op.resolve().toDouble(), (double) CalendarUtils.difference(c1, c2, Unit.MILLISECOND));
+			assertEquals(op.resolve().toDouble(), (double) CalendarUtils.difference(c1, c2, Unit.MILLISECOND), FuzzyEquals.TOLERANCE);
 		} catch (InvalidArgumentsException e) {
 			e.printStackTrace();
 			fail();

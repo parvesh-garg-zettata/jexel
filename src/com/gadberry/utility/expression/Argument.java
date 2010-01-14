@@ -9,7 +9,11 @@ import java.util.Date;
 public class Argument {
 	private static String stripLiteral(String string) {
 		if (string.startsWith(Expression.LITERAL_CHARACTER) && string.endsWith(Expression.LITERAL_CHARACTER)) {
-			return string.substring(1, string.length() - 1);
+			String newString = string.substring(1, string.length() - 1);
+			if(newString.contains(Expression.LITERAL_CHARACTER)){
+				return string;
+			}
+			return newString;
 		}
 		return string.replaceAll("''", "'");
 	}
@@ -121,7 +125,7 @@ public class Argument {
 	 * Determine if the base object is a literal string.
 	 * 
 	 * @return whether or not the argument is surrounded by the
-	 *         Expression.LITERAL_STRING constant
+	 *         Expression.LITERAL_CHARACTER constant
 	 */
 	public boolean isLiteral() {
 		return !stripLiteral(arg.toString()).equals(arg.toString());

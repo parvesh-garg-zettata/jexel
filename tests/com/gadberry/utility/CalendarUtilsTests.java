@@ -539,7 +539,7 @@ public class CalendarUtilsTests {
 		c2.set(Calendar.SECOND, 30);
 		c2.set(Calendar.MILLISECOND, 0);
 
-		assertEquals(CalendarUtils.exactDifference(c1, c2, Unit.MINUTE), 1.5);
+		assertEquals(CalendarUtils.exactDifference(c1, c2, Unit.MINUTE), 1.5, FuzzyEquals.TOLERANCE);
 	}
 
 	/**
@@ -565,7 +565,7 @@ public class CalendarUtilsTests {
 		c2.set(Calendar.SECOND, 33);
 		c2.set(Calendar.MILLISECOND, 0);
 
-		assertEquals(CalendarUtils.exactDifference(c1, c2, Unit.MINUTE), 2.55);
+		assertEquals(CalendarUtils.exactDifference(c1, c2, Unit.MINUTE), 2.55, FuzzyEquals.TOLERANCE);
 	}
 
 	/**
@@ -591,7 +591,7 @@ public class CalendarUtilsTests {
 		c2.set(Calendar.SECOND, 1);
 		c2.set(Calendar.MILLISECOND, 500);
 
-		assertEquals(CalendarUtils.exactDifference(c1, c2, Unit.SECOND), 1.5);
+		assertEquals(CalendarUtils.exactDifference(c1, c2, Unit.SECOND), 1.5, FuzzyEquals.TOLERANCE);
 	}
 
 	/**
@@ -617,7 +617,7 @@ public class CalendarUtilsTests {
 		c2.set(Calendar.SECOND, 2);
 		c2.set(Calendar.MILLISECOND, 501);
 
-		assertEquals(CalendarUtils.exactDifference(c1, c2, Unit.SECOND), 2.501);
+		assertEquals(CalendarUtils.exactDifference(c1, c2, Unit.SECOND), 2.501, FuzzyEquals.TOLERANCE);
 	}
 
 	/**
