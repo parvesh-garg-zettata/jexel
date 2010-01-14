@@ -148,6 +148,26 @@ public class ExpressionTests extends TestCase {
 			fail();
 		}
 	}
+	
+	/**
+	 * 
+	 */
+	@Test
+	public void testPriorities() {
+		try {
+			assertEquals(Expression.evaluate("2 > 1 AND 1 < 2 OR 1 <= 0").toBoolean(), true);
+			assertEquals(Expression.evaluate("2 >= 1 || 3 <= 2").toBoolean(), true);
+			assertEquals(Expression.evaluate("5 * 5 >= 2 + 2 - 1").toBoolean(), true);
+			assertEquals(Expression.evaluate("5 + 2 == 2 + 5").toBoolean(), true);
+			assertEquals(Expression.evaluate("1 == 1 AND 2 == 2").toBoolean(), true);
+		} catch (InvalidExpressionException e) {
+			e.printStackTrace();
+			fail();
+		} catch (ArgumentCastException e) {
+			e.printStackTrace();
+			fail();
+		}
+	}
 
 	/**
 	 * 

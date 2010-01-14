@@ -145,7 +145,7 @@ public class LessThanOrEqualSymbolTests {
 	 */
 	@Test
 	public void testGetPriority() {
-		assertEquals(op.getPriority(), 2);
+		assertEquals(op.getPriority(), 5);
 	}
 
 	/**

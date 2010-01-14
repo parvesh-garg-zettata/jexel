@@ -145,7 +145,7 @@ public class AndSymbolTests {
 	 */
 	@Test
 	public void testGetPriority() {
-		assertEquals(op.getPriority(), 10);
+		assertEquals(op.getPriority(), 4);
 	}
 
 	/**

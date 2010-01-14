@@ -146,7 +146,7 @@ public class SubtractionSymbolTests {
 	 */
 	@Test
 	public void testGetPriority() {
-		assertEquals(op.getPriority(), 6);
+		assertEquals(op.getPriority(), 7);
 	}
 
 	/**

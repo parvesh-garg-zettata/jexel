@@ -33,7 +33,7 @@ public class AdditionSymbol extends Symbol {
 	}
 
 	public int getPriority() {
-		return 5;
+		return 6;
 	}
 
 	public Argument resolve() {

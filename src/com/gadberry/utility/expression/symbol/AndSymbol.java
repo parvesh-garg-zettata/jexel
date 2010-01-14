@@ -36,7 +36,7 @@ public class AndSymbol extends Symbol {
 	}
 
 	public int getPriority() {
-		return 10;
+		return 4;
 	}
 
 	public Argument resolve() {

@@ -33,7 +33,7 @@ public class GreaterThanSymbol extends Symbol {
 	}
 
 	public int getPriority() {
-		return 2;
+		return 5;
 	}
 
 	public Argument resolve() {

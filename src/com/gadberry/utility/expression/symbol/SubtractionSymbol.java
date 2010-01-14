@@ -37,7 +37,7 @@ public class SubtractionSymbol extends Symbol {
 	}
 
 	public int getPriority() {
-		return 6;
+		return 7;
 	}
 
 	public Argument resolve() {

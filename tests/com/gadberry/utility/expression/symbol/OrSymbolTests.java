@@ -145,7 +145,7 @@ public class OrSymbolTests {
 	 */
 	@Test
 	public void testGetPriority() {
-		assertEquals(op.getPriority(), 5);
+		assertEquals(op.getPriority(), 3);
 	}
 
 	/**

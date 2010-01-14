@@ -36,7 +36,7 @@ public class OrSymbol extends Symbol {
 	}
 
 	public int getPriority() {
-		return 5;
+		return 3;
 	}
 
 	public Argument resolve() {
