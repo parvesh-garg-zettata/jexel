@@ -45,7 +45,7 @@ public class Argument {
 			if (isDouble() && a.isDouble()) {
 				return toDouble() == a.toDouble();
 			} else if(isLiteral() || a.isLiteral()) {
-				return toString().equals(toString());
+				return toString().equals(a.toString());
 			} else {
 				return getObject().equals(a.getObject());
 			}
