@@ -118,6 +118,7 @@ public class ExpressionTests extends TestCase {
 			assertEquals(Expression.evaluate("substr('1 + 3', 2, 3)").toString(), "+");
 			assertEquals(Expression.evaluate("a''bc + d").toString(), "a'bcd");
 			assertEquals(Expression.evaluate("substr('abc'+'def',1)").toString(), "bcdef");
+			assertTrue(Expression.evaluate("'abc'==abc").toBoolean());
 		} catch (InvalidExpressionException e) {
 			e.printStackTrace();
 			fail();
@@ -209,4 +210,20 @@ public class ExpressionTests extends TestCase {
 			fail();
 		}
 	}
+	
+	/**
+	 * 
+	 */
+	/*@Test
+	public void testStringLiteral() {
+		try {
+			Expression exp = new Expression("$DEST=='57889' AND $MSISDN==919873364511");
+			exp.setResolver(new KeywordResolver("10 11 	12","919873364511","57889"));
+			Argument arg = exp.evaluate();
+			System.out.println(arg.toString());
+		} catch (InvalidExpressionException e) {
+			e.printStackTrace();
+			fail();
+		}
+	}*/
 }

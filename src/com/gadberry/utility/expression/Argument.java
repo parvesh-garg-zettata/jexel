@@ -7,7 +7,7 @@ import java.util.Date;
  * @author Aaron Gadberry
  */
 public class Argument {
-	private static String stripLiteral(String string) {
+	static String stripLiteral(String string) {
 		if (string.startsWith(Expression.LITERAL_CHARACTER) && string.endsWith(Expression.LITERAL_CHARACTER)) {
 			String newString = string.substring(1, string.length() - 1);
 			if(newString.contains(Expression.LITERAL_CHARACTER)){
@@ -44,6 +44,8 @@ public class Argument {
 			Argument a = (Argument) o;
 			if (isDouble() && a.isDouble()) {
 				return toDouble() == a.toDouble();
+			} else if(isLiteral() || a.isLiteral()) {
+				return toString().equals(toString());
 			} else {
 				return getObject().equals(a.getObject());
 			}
