@@ -58,7 +58,7 @@ public class Expression {
 		for (Operator op : potentialOperators) {
 			if (lowestPriorityOperator == null) {
 				lowestPriorityOperator = op;
-			} else if (op.getPriority() < lowestPriorityOperator.getPriority()) {
+			} else if (op.getPriority() <= lowestPriorityOperator.getPriority()) {
 				lowestPriorityOperator = op;
 			}
 		}
