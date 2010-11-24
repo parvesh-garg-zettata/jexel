@@ -1,18 +1,15 @@
 package com.gadberry.utility.expression.symbol;
 
 import java.util.Date;
-import java.util.List;
 
 import com.gadberry.utility.expression.Argument;
 import com.gadberry.utility.expression.Expression;
-import com.gadberry.utility.expression.InvalidArgumentsException;
-import com.gadberry.utility.expression.Symbol;
 
 /**
  * @author Aaron Gadberry
  */
 
-public class GreaterThanSymbol extends Symbol {
+public class GreaterThanSymbol extends TwoArgumentsSymbol {
 
 	/**
 	 * Create a GreaterThanSymbol with a given parent expression.
@@ -22,14 +19,6 @@ public class GreaterThanSymbol extends Symbol {
 	 */
 	public GreaterThanSymbol(Expression expression) {
 		super(expression);
-	}
-
-	@Override
-	protected void checkArgs(List<Argument> args) throws InvalidArgumentsException {
-		if (args.size() != 2) {
-			throw new InvalidArgumentsException(
-					"GreaterThanOperator requires two arguments.  Wrong number of arguments provided.");
-		}
 	}
 
 	public int getPriority() {

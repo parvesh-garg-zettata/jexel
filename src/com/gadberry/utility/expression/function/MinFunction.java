@@ -32,7 +32,10 @@ public class MinFunction extends Function {
 		}
 
 		for (Argument arg : args) {
-			if (!arg.isDouble()) {
+			if(arg.isNull()) {
+				throw new InvalidArgumentsException(
+						"MinOperator cannot accept null arguments.  The argument provided is null.");
+			} else if (!arg.isDouble()) {
 				throw new InvalidArgumentsException(
 						"MinOperator only accepts doubles.  Wrong type of arguments provided.  Arg: " + arg.toString());
 			}

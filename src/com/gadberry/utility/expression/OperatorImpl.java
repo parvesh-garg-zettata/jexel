@@ -33,7 +33,7 @@ public abstract class OperatorImpl implements Operator {
 		Iterator<Argument> iter = args.iterator();
 		while (iter.hasNext()) {
 			Argument arg = iter.next();
-			if (!arg.isResolved()) {
+			if (!arg.isResolved() && !arg.isNull()) {
 				try {
 					Expression expression = new Expression(arg.toString());
 					expression.setOperatorSet(getOperatorSet());

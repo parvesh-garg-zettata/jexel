@@ -6,13 +6,12 @@ import java.util.List;
 import com.gadberry.utility.expression.Argument;
 import com.gadberry.utility.expression.Expression;
 import com.gadberry.utility.expression.InvalidArgumentsException;
-import com.gadberry.utility.expression.Symbol;
 
 /**
  * @author Aaron Gadberry
  */
 
-public class LessThanOrEqualSymbol extends Symbol {
+public class LessThanOrEqualSymbol extends TwoArgumentsSymbol {
 
 	/**
 	 * Create a LessThanOrEqualSymbol with a given parent expression.
@@ -22,14 +21,6 @@ public class LessThanOrEqualSymbol extends Symbol {
 	 */
 	public LessThanOrEqualSymbol(Expression expression) {
 		super(expression);
-	}
-
-	@Override
-	protected void checkArgs(List<Argument> args) throws InvalidArgumentsException {
-		if (args.size() != 2) {
-			throw new InvalidArgumentsException(
-					"LessThanOrEqualOperator requires two arguments.  Wrong number of arguments provided.");
-		}
 	}
 
 	public int getPriority() {

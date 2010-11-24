@@ -25,6 +25,12 @@ public class SubstrFunction extends Function {
 
 	@Override
 	protected void checkArgs(List<Argument> args) throws InvalidArgumentsException {
+		for (Argument arg : args) {
+			if(arg.isNull()) {
+				throw new InvalidArgumentsException(
+						"SubstrOperator cannot accept null arguments.  At least one argument provided is null.");
+			}
+		}
 		if (args.size() == 2) {
 			if (!args.get(1).isInteger()) {
 				throw new InvalidArgumentsException(

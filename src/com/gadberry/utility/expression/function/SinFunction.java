@@ -1,17 +1,13 @@
 package com.gadberry.utility.expression.function;
 
-import java.util.List;
-
 import com.gadberry.utility.expression.Argument;
 import com.gadberry.utility.expression.Expression;
-import com.gadberry.utility.expression.Function;
-import com.gadberry.utility.expression.InvalidArgumentsException;
 
 /**
  * @author Aaron Gadberry
  */
 
-public class SinFunction extends Function {
+public class SinFunction extends OneDoubleFunction {
 
 	/**
 	 * Create a SinFunction with a given parent expression.
@@ -21,21 +17,6 @@ public class SinFunction extends Function {
 	 */
 	public SinFunction(Expression expression) {
 		super(expression);
-	}
-
-	@Override
-	protected void checkArgs(List<Argument> args) throws InvalidArgumentsException {
-		if (args.size() != 1) {
-			throw new InvalidArgumentsException(
-					"SinOperator requires a single doubles.  Wrong number of arguments provided.");
-		}
-
-		for (Argument arg : args) {
-			if (!arg.isDouble()) {
-				throw new InvalidArgumentsException(
-						"SinOperator only accepts doubles.  Wrong type of arguments provided.  Arg: " + arg.toString());
-			}
-		}
 	}
 
 	public Argument resolve() {

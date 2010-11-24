@@ -28,6 +28,13 @@ public class DateDifferenceFunction extends Function {
 
 	@Override
 	protected void checkArgs(List<Argument> args) throws InvalidArgumentsException {
+		for (Argument arg : args) {
+			if(arg.isNull()) {
+				throw new InvalidArgumentsException(
+						"DateDifferenceOperator cannot accept null arguments.  At least one argument provided was null.");
+			}
+		}
+		
 		if (!args.get(0).isDate() || !args.get(1).isDate()) {
 			throw new InvalidArgumentsException(
 					"DateDifferenceOperator requires two dates as the first two arguments.  Wrong type of arguments provided.");

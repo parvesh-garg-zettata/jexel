@@ -16,7 +16,7 @@ public class SimpleResolver implements Resolver {
 	private SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
 
 	public boolean canResolve(String path) {
-		return resolve(path) != null;
+		return resolve(path) != null || path.equals("NULL");
 	}
 
 	private Date getDate(String path) {

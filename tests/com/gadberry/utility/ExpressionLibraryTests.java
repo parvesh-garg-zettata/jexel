@@ -58,6 +58,10 @@ public class ExpressionLibraryTests {
 			Expression exp = new Expression("dateDifference(01/01/2006, 01/05/2006, |DAY|)");
 			exp.setResolver(new SimpleResolver());
 			assertEquals(exp.evaluate().toDouble(), 4d, FuzzyEquals.TOLERANCE);
+			
+			exp = new Expression("max(1, 2, NULL)");
+			exp.setResolver(new SimpleResolver());
+			assertEquals(exp.evaluate().toString(), "max(1, 2, NULL)");
 
 		} catch (InvalidExpressionException e) {
 			e.printStackTrace();

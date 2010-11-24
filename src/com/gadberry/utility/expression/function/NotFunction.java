@@ -30,7 +30,10 @@ public class NotFunction extends Function {
 					"NotOperator requires one boolean.  Wrong number of arguments provided.");
 		}
 
-		if (!args.get(0).isBoolean()) {
+		if(args.get(0).isNull()) {
+			throw new InvalidArgumentsException(
+					"NotOperator cannot accept null arguments.  The argument provided is null.");
+		} else if (!args.get(0).isBoolean()) {
 			throw new InvalidArgumentsException("NotOperator requires one boolean.  Wrong type of arguments provided.");
 		}
 	}

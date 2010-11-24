@@ -1,17 +1,13 @@
 package com.gadberry.utility.expression.symbol;
 
-import java.util.List;
-
 import com.gadberry.utility.expression.Argument;
 import com.gadberry.utility.expression.Expression;
-import com.gadberry.utility.expression.InvalidArgumentsException;
-import com.gadberry.utility.expression.Symbol;
 
 /**
  * @author Aaron Gadberry
  */
 
-public class MultiplicationSymbol extends Symbol {
+public class MultiplicationSymbol extends TwoDoublesSymbol {
 
 	/**
 	 * Create a MultiplicationSymbol with a given parent expression.
@@ -21,19 +17,6 @@ public class MultiplicationSymbol extends Symbol {
 	 */
 	public MultiplicationSymbol(Expression expression) {
 		super(expression);
-	}
-
-	@Override
-	protected void checkArgs(List<Argument> args) throws InvalidArgumentsException {
-		if (args.size() != 2) {
-			throw new InvalidArgumentsException(
-					"MultiplicationOperator requires two doubles.  Wrong number of arguments provided.");
-		}
-
-		if (!args.get(0).isDouble() || !args.get(1).isDouble()) {
-			throw new InvalidArgumentsException(
-					"MultiplicationOperator requires two doubles.  Wrong type of arguments provided.");
-		}
 	}
 
 	public int getPriority() {

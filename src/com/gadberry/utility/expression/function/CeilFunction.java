@@ -1,17 +1,13 @@
 package com.gadberry.utility.expression.function;
 
-import java.util.List;
-
 import com.gadberry.utility.expression.Argument;
 import com.gadberry.utility.expression.Expression;
-import com.gadberry.utility.expression.Function;
-import com.gadberry.utility.expression.InvalidArgumentsException;
 
 /**
  * @author Aaron Gadberry
  */
 
-public class CeilFunction extends Function {
+public class CeilFunction extends OneDoubleFunction {
 
 	/**
 	 * Create a CeilFunction with a given parent expression.
@@ -21,22 +17,6 @@ public class CeilFunction extends Function {
 	 */
 	public CeilFunction(Expression expression) {
 		super(expression);
-	}
-
-	@Override
-	protected void checkArgs(List<Argument> args) throws InvalidArgumentsException {
-		if (args.size() != 1) {
-			throw new InvalidArgumentsException(
-					"CeilOperator requires a single double.  Wrong number of arguments provided.");
-		}
-
-		for (Argument arg : args) {
-			if (!arg.isDouble()) {
-				throw new InvalidArgumentsException(
-						"CeilOperator only accepts a double.  Wrong type of arguments provided.  Arg: "
-								+ arg.toString());
-			}
-		}
 	}
 
 	public Argument resolve() {
