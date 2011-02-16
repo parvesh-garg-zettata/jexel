@@ -22,6 +22,7 @@ public abstract class Function extends OperatorImpl {
 	private static List<String> tokenize(String expression, char splitChar) {
 		expression = Expression.trim(expression);
 		int parentheticalDepth = 0;
+		boolean insideLiteral = false;
 		List<String> tokens = new ArrayList<String>();
 		StringBuffer currentToken = new StringBuffer();
 		for (int i = 0; i < expression.length(); i++) {
@@ -30,7 +31,9 @@ public abstract class Function extends OperatorImpl {
 				parentheticalDepth++;
 			} else if (c == ')') {
 				parentheticalDepth--;
-			} else if (parentheticalDepth == 0 && c == splitChar) {
+			} else if (c == Expression.LITERAL_CHARACTER) {
+				insideLiteral = !insideLiteral;
+			} else if (parentheticalDepth == 0 && c == splitChar && !insideLiteral) {
 				tokens.add(currentToken.toString());
 				currentToken = new StringBuffer();
 

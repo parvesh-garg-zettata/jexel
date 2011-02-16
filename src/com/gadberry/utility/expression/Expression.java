@@ -12,7 +12,7 @@ public class Expression {
 
 	private static Resolver defaultResolver = null;
 
-	static final String LITERAL_CHARACTER = "'";
+	static final char LITERAL_CHARACTER = '\'';
 
 	/**
 	 * This is a publicly accessible static method to cover general use of the
@@ -114,11 +114,12 @@ public class Expression {
 		for (int i = 0; i < expression.length(); i++) {
 			String s = expression.substring(i);
 			boolean add = true;
-			if (s.startsWith("(")) {
+			char c = s.charAt(0);
+			if (c == '(') {
 				parentheticalDepth++;
-			} else if (s.startsWith(")")) {
+			} else if (c == ')') {
 				parentheticalDepth--;
-			} else if (s.startsWith(LITERAL_CHARACTER)) {
+			} else if (c == LITERAL_CHARACTER) {
 				insideLiteral = !insideLiteral;
 			} else if (parentheticalDepth == 0 && !insideLiteral) {
 				String maxSymbol = null;
@@ -140,7 +141,7 @@ public class Expression {
 				}
 			}
 			if (add) {
-				currentToken.append(s.charAt(0));
+				currentToken.append(c);
 			}
 		}
 		tokens.add(currentToken.toString().trim());

@@ -8,9 +8,10 @@ import java.util.Date;
  */
 public class Argument {
 	static String stripLiteral(String string) {
-		if (string.startsWith(Expression.LITERAL_CHARACTER) && string.endsWith(Expression.LITERAL_CHARACTER)) {
+		String literalAsString = String.valueOf(Expression.LITERAL_CHARACTER);
+		if (string.startsWith(literalAsString) && string.endsWith(literalAsString)) {
 			String newString = string.substring(1, string.length() - 1);
-			if(newString.contains(Expression.LITERAL_CHARACTER)){
+			if(newString.contains(literalAsString)){
 				return string;
 			}
 			return newString;

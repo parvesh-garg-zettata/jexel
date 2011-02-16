@@ -116,6 +116,7 @@ public class ExpressionTests extends TestCase {
 			assertEquals(Expression.evaluate("'a +b' + c").toString(), "a +bc");
 			assertEquals(Expression.evaluate("'1+ 2' + 3").toString(), "1+ 23");
 			assertEquals(Expression.evaluate("substr('1 + 3', 2, 3)").toString(), "+");
+			assertEquals(Expression.evaluate("substr('1 , 3', 2, 5)").toString(), ", 3");
 			assertEquals(Expression.evaluate("a''bc + d").toString(), "a'bcd");
 			assertEquals(Expression.evaluate("substr('abc'+'def',1)").toString(), "bcdef");
 			assertTrue(Expression.evaluate("'abc'==abc").toBoolean());
