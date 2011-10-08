@@ -122,8 +122,6 @@ public class OrSymbolTests {
 	 * This checks non-double arguments. Should throw an exception for a
 	 * non-double argument.
 	 * 
-	 * Same as the previous test but the arguments are in reverse order.
-	 * 
 	 * Argument 1: boolean
 	 * 
 	 * Argument 2: 1
@@ -137,6 +135,48 @@ public class OrSymbolTests {
 			op.setArguments(args);
 			fail();
 		} catch (InvalidArgumentsException e) {
+		}
+	}
+	
+	/**
+	 * This checks non-boolean arguments. Should not throw an exception for a
+	 * non-double argument, because the short or will never evaluate the second
+	 * argument.
+	 * 
+	 * Argument 1: boolean
+	 * 
+	 * Argument 2: abc
+	 */
+	@Test
+	public void testCheckArgs6() {
+		List<Argument> args = new ArrayList<Argument>();
+		args.add(new Argument(new Boolean(true), null));
+		args.add(new Argument("abc", null));
+		try {
+			op.setArguments(args);
+		} catch (InvalidArgumentsException e) {
+			fail();
+		}
+	}
+
+	/**
+	 * This checks non-boolean arguments. Should not throw an exception for a
+	 * non-double argument, because the short or will never evaluate the second
+	 * argument.
+	 * 
+	 * Argument 1: boolean
+	 * 
+	 * Argument 2: 1
+	 */
+	@Test
+	public void testCheckArgs7() {
+		List<Argument> args = new ArrayList<Argument>();
+		args.add(new Argument(new Boolean(true), null));
+		args.add(new Argument(new Double(1), null));
+		try {
+			op.setArguments(args);
+		} catch (InvalidArgumentsException e) {
+			fail();
 		}
 	}
 
@@ -227,6 +267,28 @@ public class OrSymbolTests {
 		try {
 			op.setArguments(args);
 			assertEquals(op.resolve().toBoolean(), false);
+		} catch (InvalidArgumentsException e) {
+			e.printStackTrace();
+			fail();
+		} catch (ArgumentCastException e) {
+			e.printStackTrace();
+			fail();
+		}
+	}
+	
+	/**
+	 * This checks one iteration of basic OR
+	 * 
+	 * Test: false && abc
+	 */
+	@Test
+	public void testResolveShort() {
+		List<Argument> args = new ArrayList<Argument>();
+		args.add(new Argument(new Boolean(true), null));
+		args.add(new Argument("abc", null));
+		try {
+			op.setArguments(args);
+			assertEquals(op.resolve().toBoolean(), true);
 		} catch (InvalidArgumentsException e) {
 			e.printStackTrace();
 			fail();
