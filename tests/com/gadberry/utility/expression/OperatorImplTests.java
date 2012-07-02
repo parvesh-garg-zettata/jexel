@@ -12,85 +12,85 @@ import org.junit.Test;
 
 /**
  * @author Aaron Gadberry
- *
+ * 
  */
 public class OperatorImplTests {
 
-	/**
+    /**
 	 * 
 	 */
-	public static double TOLERANCE = .0001;
+    public static double TOLERANCE = .0001;
 
-	private Operator op = null;
+    private Operator op = null;
 
-	/**
-	 * @throws Exception
-	 */
-	@Before
-	public void setUp() throws Exception {
-		op = new MockOperator(null);
+    /**
+     * @throws Exception
+     */
+    @Before
+    public void setUp() throws Exception {
+	op = new MockOperator(null);
+    }
+
+    /**
+     * @throws Exception
+     */
+    @After
+    public void tearDown() throws Exception {
+	op = null;
+    }
+
+    /**
+     * Testing getArgument(int) and argument resolution
+     * 
+     */
+    @Test
+    public void testGetArgument() {
+	List<Argument> args = new ArrayList<Argument>();
+	args.add(new Argument("1 + 1", null));
+	args.add(new Argument(new Integer(2), null));
+	try {
+	    op.setArguments(args);
+	    assertEquals(new Argument(new Double(2), null), op.getArgument(0));
+	    assertEquals(new Argument(new Double(2), null), op.getArgument(1));
+	} catch (InvalidArgumentsException e) {
+	    e.printStackTrace();
+	    fail();
 	}
+    }
 
-	/**
-	 * @throws Exception
-	 */
-	@After
-	public void tearDown() throws Exception {
-		op = null;
+    /**
+     * Testing getArguments()
+     * 
+     */
+    @Test
+    public void testGetArguments() {
+	List<Argument> args = new ArrayList<Argument>();
+	args.add(new Argument("4", null));
+	args.add(new Argument(new Integer(2), null));
+	try {
+	    op.setArguments(args);
+	    assertEquals(args, op.getArguments());
+	} catch (InvalidArgumentsException e) {
+	    e.printStackTrace();
+	    fail();
 	}
+    }
 
-	/**
-	 * Testing getArgument(int) and argument resolution
-	 * 
-	 */
-	@Test
-	public void testGetArgument() {
-		List<Argument> args = new ArrayList<Argument>();
-		args.add(new Argument("1 + 1", null));
-		args.add(new Argument(new Integer(2), null));
-		try {
-			op.setArguments(args);
-			assertEquals(op.getArgument(0), new Argument(new Double(2), null));
-			assertEquals(op.getArgument(1), new Argument(new Double(2), null));
-		} catch (InvalidArgumentsException e) {
-			e.printStackTrace();
-			fail();
-		}
+    /**
+     * Testing set / get arguments
+     * 
+     */
+    @Test
+    public void testSetArguments() {
+	List<Argument> args = new ArrayList<Argument>();
+	args.add(new Argument(new Integer(1), null));
+	args.add(new Argument(new Integer(2), null));
+	try {
+	    op.setArguments(args);
+	    assertEquals(args, op.getArguments());
+	} catch (InvalidArgumentsException e) {
+	    e.printStackTrace();
+	    fail();
 	}
-
-	/**
-	 * Testing getArguments()
-	 * 
-	 */
-	@Test
-	public void testGetArguments() {
-		List<Argument> args = new ArrayList<Argument>();
-		args.add(new Argument("4", null));
-		args.add(new Argument(new Integer(2), null));
-		try {
-			op.setArguments(args);
-			assertEquals(op.getArguments(), args);
-		} catch (InvalidArgumentsException e) {
-			e.printStackTrace();
-			fail();
-		}
-	}
-
-	/**
-	 * Testing set / get arguments
-	 * 
-	 */
-	@Test
-	public void testSetArguments() {
-		List<Argument> args = new ArrayList<Argument>();
-		args.add(new Argument(new Integer(1), null));
-		args.add(new Argument(new Integer(2), null));
-		try {
-			op.setArguments(args);
-			assertEquals(op.getArguments(), args);
-		} catch (InvalidArgumentsException e) {
-			e.printStackTrace();
-			fail();
-		}
-	}
+    }
 }

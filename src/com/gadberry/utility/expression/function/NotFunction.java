@@ -38,6 +38,7 @@ public class NotFunction extends Function {
 		}
 	}
 
+	@Override
 	public Argument resolve() {
 		boolean arg = getArgument(0).toBoolean();
 		return new Argument(new Boolean(!arg), getResolver());

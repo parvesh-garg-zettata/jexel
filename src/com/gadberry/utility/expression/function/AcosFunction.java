@@ -19,6 +19,7 @@ public class AcosFunction extends OneDoubleFunction {
 		super(expression);
 	}
 
+	@Override
 	public Argument resolve() {
 		return new Argument(Math.acos((getArgument(0).toDouble())), getResolver());
 	}

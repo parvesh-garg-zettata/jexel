@@ -19,6 +19,7 @@ public class SinFunction extends OneDoubleFunction {
 		super(expression);
 	}
 
+	@Override
 	public Argument resolve() {
 		return new Argument(Math.sin(getArgument(0).toDouble()), getResolver());
 	}

@@ -32,22 +32,22 @@ public class SubstrFunction extends Function {
 			}
 		}
 		if (args.size() == 2) {
-			if (!args.get(1).isInteger()) {
+			if (!args.get(1).isLong()) {
 				throw new InvalidArgumentsException(
 						"SubstrOperator requires one string and one or two integers.  Wrong type of arguments provided.");
 			}
-			if (args.get(1).toInteger() < 0) {
+			if (args.get(1).toLong() < 0) {
 				throw new InvalidArgumentsException("SubstrOperator requires positive integers.");
 			}
 		} else if (args.size() == 3) {
-			if (!args.get(1).isInteger() || !args.get(2).isInteger()) {
+			if (!args.get(1).isLong() || !args.get(2).isLong()) {
 				throw new InvalidArgumentsException(
 						"SubstrOperator requires one string and one or two integers.  Wrong type of arguments provided.");
 			}
-			if (args.get(2).toInteger() < 0) {
+			if (args.get(2).toLong() < 0) {
 				throw new InvalidArgumentsException("SubstrOperator requires positive integers.");
 			}
-			if (args.get(1).toInteger() > args.get(2).toInteger()) {
+			if (args.get(1).toLong() > args.get(2).toLong()) {
 				throw new InvalidArgumentsException(
 						"SubstrOperator requires the first integer be smaller than the second integer.");
 			}
@@ -58,6 +58,7 @@ public class SubstrFunction extends Function {
 
 	}
 
+	@Override
 	public Argument resolve() {
 		String s = getArgument(0).toString();
 		int start = getArgument(1).toInteger();

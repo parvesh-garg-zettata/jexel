@@ -19,8 +19,9 @@ public class FloorFunction extends OneDoubleFunction {
 		super(expression);
 	}
 
+	@Override
 	public Argument resolve() {
 		double n = getArgument(0).toDouble();
-		return new Argument(new Double(Math.floor(n)), getResolver());
+		return new Argument(Math.floor(n), getResolver());
 	}
 }

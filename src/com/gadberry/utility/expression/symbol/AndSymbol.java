@@ -38,10 +38,12 @@ public class AndSymbol extends TwoArgumentsSymbol {
 		}
 	}
 
+	@Override
 	public int getPriority() {
 		return 4;
 	}
 
+	@Override
 	public Argument resolve() {
 		boolean lhs = getArgument(0).toBoolean();
 		if (!lhs) {

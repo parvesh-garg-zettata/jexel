@@ -9,17 +9,19 @@ import com.gadberry.utility.expression.Expression;
 
 public class AsinFunction extends OneDoubleFunction {
 
-	/**
-	 * Create an AsinFunction with a given parent expression.
-	 * 
-	 * @param expression
-	 *            parent
-	 */
-	public AsinFunction(Expression expression) {
-		super(expression);
-	}
+    /**
+     * Create an AsinFunction with a given parent expression.
+     * 
+     * @param expression
+     *            parent
+     */
+    public AsinFunction(Expression expression) {
+	super(expression);
+    }
 
-	public Argument resolve() {
-		return new Argument(Math.asin((getArgument(0).toDouble())), getResolver());
-	}
+    @Override
+    public Argument resolve() {
+	return new Argument(Math.asin((getArgument(0).toDouble())),
+		getResolver());
+    }
 }

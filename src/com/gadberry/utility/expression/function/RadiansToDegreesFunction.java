@@ -9,17 +9,19 @@ import com.gadberry.utility.expression.Expression;
 
 public class RadiansToDegreesFunction extends OneDoubleFunction {
 
-	/**
-	 * Create a RadiansToDegreesFunction with a given parent expression.
-	 * 
-	 * @param expression
-	 *            parent
-	 */
-	public RadiansToDegreesFunction(Expression expression) {
-		super(expression);
-	}
+    /**
+     * Create a RadiansToDegreesFunction with a given parent expression.
+     * 
+     * @param expression
+     *            parent
+     */
+    public RadiansToDegreesFunction(Expression expression) {
+	super(expression);
+    }
 
-	public Argument resolve() {
-		return new Argument(Math.toDegrees(getArgument(0).toDouble()), getResolver());
-	}
+    @Override
+    public Argument resolve() {
+	return new Argument(Math.toDegrees(getArgument(0).toDouble()),
+		getResolver());
+    }
 }

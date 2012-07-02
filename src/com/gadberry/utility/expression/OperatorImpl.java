@@ -20,10 +20,12 @@ public abstract class OperatorImpl implements Operator {
 
 	protected abstract void checkArgs(List<Argument> args) throws InvalidArgumentsException;
 
+	@Override
 	public Argument getArgument(int i) {
 		return arguments.get(i);
 	}
 
+	@Override
 	public List<Argument> getArguments() {
 		return arguments;
 	}
@@ -55,6 +57,7 @@ public abstract class OperatorImpl implements Operator {
 		return Expression.getDefaultOperatorSet();
 	}
 
+	@Override
 	public void setArguments(List<Argument> args) throws InvalidArgumentsException {
 		List<Argument> resolvedArgs = resolveArguments(args);
 		checkArgs(resolvedArgs);

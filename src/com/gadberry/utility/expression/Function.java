@@ -46,10 +46,12 @@ public abstract class Function extends OperatorImpl {
 		return tokens;
 	}
 
+	@Override
 	public int getPriority() {
 		return 20;
 	}
 
+	@Override
 	public List<Argument> parseArgs(List<String> tokens, int position) {
 		List<Argument> args = new ArrayList<Argument>();
 		String argumentString = Expression.trim(tokens.get(1));

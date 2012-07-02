@@ -19,14 +19,16 @@ public class MultiplicationSymbol extends TwoDoublesSymbol {
 		super(expression);
 	}
 
+	@Override
 	public int getPriority() {
 		return 10;
 	}
 
+	@Override
 	public Argument resolve() {
 		double lhs = getArgument(0).toDouble();
 		double rhs = getArgument(1).toDouble();
-		return new Argument(new Double(lhs * rhs), getResolver());
+		return new Argument(lhs * rhs, getResolver());
 	}
 
 }

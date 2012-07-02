@@ -48,12 +48,13 @@ public class DateDifferenceFunction extends Function {
 		}
 	}
 
+	@Override
 	public Argument resolve() {
 		Date d1 = getArgument(0).toDate();
 		Date d2 = getArgument(1).toDate();
 		Unit unit = Unit.valueOf(getArgument(2).toString());
 
-		return new Argument(CalendarUtils.difference(d1, d2, unit), getResolver());
+		return new Argument(new Long(CalendarUtils.difference(d1, d2, unit)), getResolver());
 	}
 
 }

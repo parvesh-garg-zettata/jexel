@@ -21,10 +21,12 @@ public class LessThanSymbol extends TwoArgumentsSymbol {
 		super(expression);
 	}
 
+	@Override
 	public int getPriority() {
 		return 5;
 	}
 
+	@Override
 	public Argument resolve() {
 		if (getArgument(0).isDate() && getArgument(1).isDate()) {
 			Date lhs = getArgument(0).toDate();

@@ -9,17 +9,19 @@ import com.gadberry.utility.expression.Expression;
 
 public class AtanFunction extends OneDoubleFunction {
 
-	/**
-	 * Create an AtanFunction with a given parent expression.
-	 * 
-	 * @param expression
-	 *            parent
-	 */
-	public AtanFunction(Expression expression) {
-		super(expression);
-	}
+    /**
+     * Create an AtanFunction with a given parent expression.
+     * 
+     * @param expression
+     *            parent
+     */
+    public AtanFunction(Expression expression) {
+	super(expression);
+    }
 
-	public Argument resolve() {
-		return new Argument(Math.atan((getArgument(0).toDouble())), getResolver());
-	}
+    @Override
+    public Argument resolve() {
+	return new Argument(Math.atan((getArgument(0).toDouble())),
+		getResolver());
+    }
 }

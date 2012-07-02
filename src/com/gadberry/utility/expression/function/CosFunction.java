@@ -19,6 +19,7 @@ public class CosFunction extends OneDoubleFunction {
 		super(expression);
 	}
 
+	@Override
 	public Argument resolve() {
 		return new Argument(Math.cos(getArgument(0).toDouble()), getResolver());
 	}

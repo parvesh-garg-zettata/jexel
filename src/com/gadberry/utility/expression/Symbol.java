@@ -19,6 +19,7 @@ public abstract class Symbol extends OperatorImpl {
 		super(expression);
 	}
 
+	@Override
 	public List<Argument> parseArgs(List<String> tokens, int position) {
 		List<Argument> args = new ArrayList<Argument>();
 		if (position > 0) {

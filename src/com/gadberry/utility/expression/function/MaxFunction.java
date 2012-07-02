@@ -42,6 +42,7 @@ public class MaxFunction extends Function {
 		}
 	}
 
+	@Override
 	public Argument resolve() {
 		double max = 0;
 		Iterator<Argument> iter = getArguments().iterator();
@@ -52,6 +53,6 @@ public class MaxFunction extends Function {
 				max = arg.toDouble();
 			}
 		}
-		return new Argument(new Double(max), getResolver());
+		return new Argument(max, getResolver());
 	}
 }

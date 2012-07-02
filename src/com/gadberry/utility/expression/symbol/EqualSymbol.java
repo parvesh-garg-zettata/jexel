@@ -19,10 +19,12 @@ public class EqualSymbol extends TwoArgumentsSymbol {
 		super(expression);
 	}
 
+	@Override
 	public int getPriority() {
 		return 5;
 	}
 
+	@Override
 	public Argument resolve() {
 		Argument lhs = getArgument(0);
 		Argument rhs = getArgument(1);

@@ -19,6 +19,7 @@ public class NegFunction extends OneDoubleFunction {
 		super(expression);
 	}
 
+	@Override
 	public Argument resolve() {
 		return new Argument(-1 * getArgument(0).toDouble(), getResolver());
 	}

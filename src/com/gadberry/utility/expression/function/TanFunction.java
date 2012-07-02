@@ -19,6 +19,7 @@ public class TanFunction extends OneDoubleFunction {
 		super(expression);
 	}
 
+	@Override
 	public Argument resolve() {
 		return new Argument(Math.tan(getArgument(0).toDouble()), getResolver());
 	}
